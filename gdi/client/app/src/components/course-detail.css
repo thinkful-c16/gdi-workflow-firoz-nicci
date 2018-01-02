@@ -1,0 +1,28 @@
+body {
+  box-sizing: border-box;
+}
+
+.course-inputs {
+  display: inline-block;
+  margin: auto;
+}
+
+label {
+  display: inline-block;
+  width: 140px;
+}
+
+input {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+#course-description {
+  width: 300px;
+  height: 150px;
+}
+
+
+.first-name {
+  margin-right: 5px;
+}
