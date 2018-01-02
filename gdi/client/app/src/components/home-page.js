@@ -7,14 +7,17 @@ import Venues from "./venues";
 import CourseDetail from "./course-detail";
 
 export default class HomePage extends React.Component {
+  constructor(props){
+    super(props);
+  }
 
   render() {
     return (
       <div>
         <ScheduledCourses />
-        {/* <People />
-        <Venues /> */}
-        <CourseDetail />
+        {/* <People /> */}
+        {/* <Venues /> */}
+        {/* <CourseDetail /> */}
       </div>
     );
   }

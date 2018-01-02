@@ -1,19 +1,32 @@
 import React from "react";
 import "./scheduled-courses.css";
+import {connect} from 'react-redux';
 
-export default function ScheduledCourses() {
-  return (
-    <div>
-      <div className="scheduled-courses">
-        <h1>ScheduledCourses </h1>
-        <ul>
-          <li>Course1, date/time, MeetUp link</li>
-          <li>Course2, date/time, MeetUp link</li>
-          <li>Course3, date/time, MeetUp link</li>
-          <li>Course4, date/time, MeetUp link</li>
-        </ul>
-        <button className="new-course-button">Add New Course</button>
+
+export class ScheduledCourses extends React.Component {
+  render() {
+    return (
+      <div>
+        <div className="scheduled-courses">
+          <h1>ScheduledCourses </h1>
+          <ul>
+            {this.props.scheduledCourses.map(function(course, index){
+              return (
+              <li key={index}>{course}</li>
+                );
+            })}
+          </ul>
+          <button className="new-course-button">Add New Course</button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
+
+const mapStateToProps = function(state) {
+  return {
+    scheduledCourses: state.scheduledCourses
+  };
+};
+
+export default connect(mapStateToProps)(ScheduledCourses);
