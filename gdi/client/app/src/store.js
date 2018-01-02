@@ -1,6 +1,10 @@
 import { createStore, applyMiddleware } from "redux";
-//import thunk from 'redux-thunk';
-import {connect} from 'react-redux';
-import scheduledCourses from './reducers';
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
+import { connect } from "react-redux";
+import scheduledCourses from "./reducers";
 
-export default createStore (scheduledCourses);
+export default createStore(
+  scheduledCourses,
+  composeWithDevTools(applyMiddleware(thunk))
+);

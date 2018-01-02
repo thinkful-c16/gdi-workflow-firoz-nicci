@@ -1,10 +1,16 @@
 import React from "react";
 import "./scheduled-courses.css";
 import {connect} from 'react-redux';
+import { fetchScheduledCourses } from "../actions";
 
 
 export class ScheduledCourses extends React.Component {
+  componentDidMount(){
+    this.props.dispatch(fetchScheduledCourses())
+  }
+  
   render() {
+    console.log(this.props);
     return (
       <div>
         <div className="scheduled-courses">
