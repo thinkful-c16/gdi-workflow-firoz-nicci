@@ -1,0 +1,16 @@
+div.scheduled-courses {
+  display: block;
+  position: relative;
+  margin: auto;
+  border-radius: 10px;
+  border: solid black 1px;
+}
+
+button.new-course-button {
+  display: block;
+  border-radius: 10px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 5px;
+}

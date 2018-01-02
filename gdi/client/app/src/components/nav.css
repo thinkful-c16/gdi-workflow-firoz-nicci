@@ -1,0 +1,10 @@
+ul.nav li {
+  display: inline-block;
+  list-style: none;
+  
+}
+
+ul.nav > li {
+  float: left;
+  padding: 10px;
+}
