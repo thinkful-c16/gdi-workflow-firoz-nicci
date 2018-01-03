@@ -10,22 +10,16 @@ export class ScheduledCourses extends React.Component {
   }
 
   render() {
-    // const courses = this.props.courses.map((course, index) => {
-    //   return <li key={index}>{courses}</li>
-
-    // })
-
-    console.log(this.props);
     return (
       <div>
-        <div className="scheduled-courses">
-          <h1>ScheduledCourses </h1>
+        <div className="home-page">
+          <h1>Scheduled Courses</h1>
           <ul>
-            {this.props.scheduledCourses.map((course, index) => {
-              return (<div></div>);
+            {this.props.courses.map((course, index) => {
+              return <li key={index}>{course.id} {course.dates}</li>;
             })}
           </ul>
-          <button className="new-course-button">Add New Course</button>
+          <button className="new-course-button">Schedule Course</button>
         </div>
       </div>
     );
@@ -34,7 +28,7 @@ export class ScheduledCourses extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    scheduledCourses: state.scheduledCourses
+    courses: state.scheduledCourses
   };
 };
 

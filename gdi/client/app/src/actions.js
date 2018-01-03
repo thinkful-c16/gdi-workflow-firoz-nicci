@@ -14,7 +14,7 @@ export const fetchScheduledCoursesRequest = () => {
 
 export const FETCH_SCHEDULED_COURSES_SUCCESS =
   "FETCH_SCHEDULED_COURSES_SUCCESS";
-export const fetchScheduledCoursesSuccess = () => {
+export const fetchScheduledCoursesSuccess = (scheduledCourses) => {
   return {
     type: FETCH_SCHEDULED_COURSES_SUCCESS,
     scheduledCourses
@@ -41,7 +41,9 @@ export const fetchScheduledCourses = () => dispatch => {
       return res.json();
     })
     .then(courses => {
+      console.log(courses)
       dispatch(fetchScheduledCoursesSuccess(courses));
+      
     })
     .catch(error => {
       dispatch(

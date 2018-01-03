@@ -13,10 +13,10 @@ export default class HomePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <ScheduledCourses />
-        {/* <People /> */}
-        {/* <Venues /> */}
+        <People />
+        <Venues />
         {/* <CourseDetail /> */}
       </div>
     );

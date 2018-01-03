@@ -4,11 +4,23 @@ import "./people.css";
 export default function People() {
   return (
     <div>
-      <div className="people">
-        <h1>People</h1>
+      <div className="home-page">
+        <div>
+          <h1>People</h1>
+        </div>
 
-        <button className="edit-person-button">Edit Person</button>
-        <button className="new-person-button">Add New Person</button>
+        <div className="search">
+          <form>
+            <label className="home-labels">Search People</label>
+            <input type="text" placeholder=" Peter Pickles"/>
+          </form>
+          <p>Person search results here</p>
+        </div>
+
+        <div className="people-buttons">
+          <button className="edit-person">Edit Person</button>
+          <button>Add New Person</button>
+        </div>
       </div>
     </div>
   );
