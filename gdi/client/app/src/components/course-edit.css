@@ -8,10 +8,10 @@ body {
   box-sizing: border-box;
 }
 
-.course-inputs {
+/* .course-inputs {
   display: inline-block;
   margin: auto;
-}
+} */
 
 label {
   display: inline-block;
@@ -52,7 +52,7 @@ div.course-edit{
   display: block;
   margin: auto;
   border-radius: 10px;
-  border: solid red 1px;
+  
 }
 .course-detail-buttons {
   float: right;

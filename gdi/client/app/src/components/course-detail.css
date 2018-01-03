@@ -8,6 +8,12 @@ body {
   box-sizing: border-box;
 }
 
+div.course-detail {
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+}
+
 form {
   margin: auto;
   width: 75%;
@@ -52,11 +58,7 @@ button:hover {
   font-weight: bold;
 }
 
-div.course-detail {
-  display: block;
-  margin: auto;
-  border-radius: 10px;
-}
+
 
 .course-detail-buttons {
   float: right;

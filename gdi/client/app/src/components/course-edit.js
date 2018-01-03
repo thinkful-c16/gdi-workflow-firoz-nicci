@@ -1,7 +1,7 @@
 import React from "react";
 import "./course-edit.css";
 import Nav from "./nav";
-import Input from './input';
+import Form from './form';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default class CourseEdit extends React.Component {
@@ -12,7 +12,7 @@ export default class CourseEdit extends React.Component {
       <div className="course-edit">
         
           <form role="form">
-            <fieldset className="course-inputs">
+            
               <h1>Course Edit</h1>
               <div>
                 <label htmlFor="course-name">Course Name:</label>
@@ -58,7 +58,7 @@ export default class CourseEdit extends React.Component {
               
               <div>
                 <label htmlFor="course-description">Description:</label>
-                <input type="text" id="course-description" />
+                <textarea type="text" id="course-description" />
                   <div className="addtl-dates-div">
                     <label className="addtl-dates-label">Additonal Class Dates</label>
                   </div>
@@ -71,7 +71,7 @@ export default class CourseEdit extends React.Component {
                             
             </div>    
 
-            </fieldset>
+            
           </form>
           
         

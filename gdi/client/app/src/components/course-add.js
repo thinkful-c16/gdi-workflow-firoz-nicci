@@ -1,7 +1,7 @@
 import React from "react";
 import "./course-add.css";
 import Nav from "./nav";
-import Input from './input';
+import Form from './form';
 
 export default class CourseAdd extends React.Component {
   render(){
@@ -58,7 +58,7 @@ export default class CourseAdd extends React.Component {
               
               <div>
                 <label htmlFor="course-description">Description:</label>
-                <input type="text" id="course-description" />
+                <textarea type="text" id="course-description" />
                   <div className="addtl-dates-div">
                     <label className="addtl-dates-label">Additonal Class Dates</label>
                   </div>

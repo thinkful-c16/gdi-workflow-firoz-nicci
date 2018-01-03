@@ -1,13 +1,15 @@
 import {
   FETCH_SCHEDULED_COURSES_REQUEST,
   FETCH_SCHEDULED_COURSES_SUCCESS,
-  FETCH_SCHEDULED_COURSES_ERROR
+  FETCH_SCHEDULED_COURSES_ERROR,
+  SELECT_COURSE
 } from "./actions";
 
 const initialState = {
   scheduledCourses: [],
   loading: false,
-  error: null
+  error: null,
+  selectedCourse: null
 };
 
 export default function scheduledCourses(state = initialState, action) {
@@ -26,6 +28,11 @@ export default function scheduledCourses(state = initialState, action) {
       loading: false,
       error: action.error
     });
+  } else if (action.type === SELECT_COURSE) {
+    return Object.assign({}, state, {
+      selectedCourse: action.course
+    });
   }
+
   return state;
 }

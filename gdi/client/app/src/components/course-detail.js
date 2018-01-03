@@ -1,15 +1,23 @@
 import React from "react";
 import "./course-detail.css";
 import Nav from "./nav";
-import Input from './input';
+import { connect } from "react-redux";
+import { fetchScheduledCourses, selectCourse } from "../actions";
+//import Form from './form';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import scheduledCourses from "../reducers";
 
-export default class CourseDetail extends React.Component {
+export class CourseDetail extends React.Component {
+  componentDidMount() {
+    //use if condition if needed with redirect for people trying to access url directly
+  }
+
   render(){
+    console.log(this.props.course)
     return (
     <div>
         <Nav />
-      <div className="course-detail">
+      <div className="course-detail"> 
         
           <form role="form">
             
@@ -20,8 +28,8 @@ export default class CourseDetail extends React.Component {
                 <input 
                 type="text"
                 id="course-name"
-                placeholder="Introduction to JavaScript"
-                value={'Intro to JavaScript'}
+                placeholder="Introduction to "
+                defaultValue={this.props.course.name}
                 
                 />
               </div>
@@ -29,7 +37,7 @@ export default class CourseDetail extends React.Component {
               <div className="input-icon">
                 <label htmlFor="cost">Cost:</label>
                 <input type="number" id="cost" 
-                value={150}/>
+                defaultValue={150}/>
               </div>
 
               <div>
@@ -42,44 +50,44 @@ export default class CourseDetail extends React.Component {
               <div className="teacher-name">
                 <label>Teacher Name:</label>
                 <input type="text" name="firstname"  className="first-name" placeholder="First"
-                 value={`Jane`}
+                 defaultValue={`Jane`}
                   />
                 <input type="text" name="lasttname" className="last-name" placeholder="Last"
-                value={`Teacher`}/>
+                defaultValue={`Teacher`}/>
                 <input type="text" name="slack" className="slack-name" placeholder="Slack Handle"
-                value={`jayeteach`}/>
+                defaultValue={`jayeteach`}/>
               </div>
 
               <div>
                 <label htmlFor="ta-name">TA Name:</label>
                 <input type="text" name="firstname"  className="first-name" placeholder="First"
-                value={`Johnny`}/>
+                defaultValue={`Johnny`}/>
                 <input type="text" name="lasttname" className="last-name" placeholder="Last" 
-                value={`Walker`}/>
+                defaultValue={`Walker`}/>
                 <input type="text" name="slack" className="slack-name" placeholder="Slack Handle"
-                value={`jwalker`}/>
+                defaultValue={`jwalker`}/>
               </div>
 
               <div>
               <label htmlFor="class-coord">Class Coord.:</label>
               <input type="text" name="firstname" className="first-name" placeholder="First" 
-              value={`Nicci`}/>
+              defaultValue={`Nicci`}/>
               <input type="text" name="lasttname" className="last-name" placeholder="Last" 
-              value={`Williams`}/>
+              defaultValue={`Williams`}/>
               <input type="text" name="slack" className="slack-name" placeholder="Slack Handle"
-              value={`nicciwill`}/>
+              defaultValue={`nicciwill`}/>
               </div>
 
               <div>
                 <label htmlFor="venue">Venue:</label>
                 <input type="text" id="venue" 
-                value={`City College`}/>
+                defaultValue={`City College`}/>
               </div>
               
               <div>
                 <label htmlFor="course-description">Description:</label>
                 <textarea type="text" id="course-description" 
-                value={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium, orci sit amet ornare commodo, quam nulla facilisis nisi, ut egestas lectus arcu consequat elit.`}/>
+                defaultValue={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium, orci sit amet ornare commodo, quam nulla facilisis nisi, ut egestas lectus arcu consequat elit.`}/>
                   <div className="addtl-dates-div">
                     <label className="addtl-dates-label">Additonal Class Dates</label>
                   </div>
@@ -104,3 +112,10 @@ export default class CourseDetail extends React.Component {
 }
 }
 
+const mapStateToProps = (state, props) => {
+  return {
+    course: state.selectedCourse
+  };
+};
+
+export default connect(mapStateToProps)(CourseDetail);
