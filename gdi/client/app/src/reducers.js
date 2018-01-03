@@ -11,7 +11,6 @@ const initialState = {
 };
 
 export default function scheduledCourses(state = initialState, action) {
-  console.log(action);
   if (action.type === FETCH_SCHEDULED_COURSES_REQUEST) {
     return Object.assign({}, state, {
       loading: true
