@@ -48,7 +48,7 @@ button:hover {
   /* font-size: 110%; */
 }
 
-div.course-detail {
+div.course-edit{
   display: block;
   margin: auto;
   border-radius: 10px;
@@ -58,10 +58,10 @@ div.course-detail {
   float: right;
 }
 
-.align-button {
+.edit-submit-button {
   display: inline-block;
   text-align: center;
-  width: 47%;
+  width: 100%;
   margin-right: 3%;
 }
 

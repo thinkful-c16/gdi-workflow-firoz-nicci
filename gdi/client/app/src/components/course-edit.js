@@ -1,19 +1,19 @@
 import React from "react";
-import "./course-detail.css";
+import "./course-edit.css";
 import Nav from "./nav";
 import Input from './input';
 
-export default class CourseDetail extends React.Component {
+export default class CourseEdit extends React.Component {
   render(){
     console.log(this.props);
   return (
     <div>
       <Nav />
-      <div className="course-detail">
+      <div className="course-edit">
         
           <form role="form">
             <fieldset className="course-inputs">
-              <h1>Course Detail</h1>
+              <h1>Course Edit</h1>
               <div>
                 <label htmlFor="course-name">Course Name:</label>
                 <input type="text" id="course-name" />
@@ -67,8 +67,8 @@ export default class CourseDetail extends React.Component {
 
             <div className="course-detail-buttons">
               <button>Make Live on MeetUp</button>
-              <button className="align-button">Edit</button>
-              <button className="align-button">Delete</button>
+              <button className="edit-submit-button">Submit</button>
+              
             </div>    
 
             </fieldset>

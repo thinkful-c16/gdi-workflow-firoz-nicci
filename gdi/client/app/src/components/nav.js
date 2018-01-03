@@ -1,17 +1,19 @@
 import React from "react";
 import "./nav.css";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 export default function Nav() {
   return (
     <div>
       <ul className="nav-menu">
         <li>
-          <a href="default.asp">Courses</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="news.asp">People</a>
+          <Link to="/people">People</Link>
         </li>
         <li>
-          <a href="contact.asp">Venues</a>
+          <Link to="/venues">Venues</Link>
         </li>
       </ul>
     </div>

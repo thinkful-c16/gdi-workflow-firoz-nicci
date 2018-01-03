@@ -3,6 +3,7 @@ import "./scheduled-courses.css";
 import { connect } from "react-redux";
 import { fetchScheduledCourses } from "../actions";
 import scheduledCourses from "../reducers";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export class ScheduledCourses extends React.Component {
   componentDidMount() {
@@ -16,7 +17,13 @@ export class ScheduledCourses extends React.Component {
           <h1>Scheduled Courses</h1>
           <ul>
             {this.props.courses.map((course, index) => {
-              return <li key={index}>{course.id} {course.dates}</li>;
+              return (
+                <li key={index}>
+                  <Link to="/courseDetail/:courseId">
+                    {course.title}</Link> {course.dates}
+                  
+                </li>
+              );
             })}
           </ul>
           <button className="new-course-button">Schedule Course</button>
