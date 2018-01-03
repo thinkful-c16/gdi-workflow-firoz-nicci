@@ -49,10 +49,10 @@ button:hover {
 }
 
 div.course-detail{
-  /* display: block;
-  margin: auto; */
+  display: block;
+  margin: auto;
   border-radius: 10px;
-  border: solid black 1px;
+  border: solid red 1px;
 }
 .course-detail-buttons {
   float: right;
@@ -65,23 +65,16 @@ div.course-detail{
   margin-right: 3%;
 }
 
-.dates-div {
+.addtl-dates-div {
   display: block;
   float: right;
   font-weight: bold;
   margin-right: 15px;
 }
 
-.dates-label {
+.addtl-dates-label {
   display: block;
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
 }
-
-/* fieldset {
-  display: block;
-  padding: 20px;
-  width: 960px;
-  margin: auto;
-} */

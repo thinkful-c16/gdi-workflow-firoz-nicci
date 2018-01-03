@@ -3,7 +3,7 @@ import "./nav.css";
 export default function Nav() {
   return (
     <div>
-      <ul className="nav">
+      <ul className="nav-menu">
         <li>
           <a href="default.asp">Courses</a>
         </li>

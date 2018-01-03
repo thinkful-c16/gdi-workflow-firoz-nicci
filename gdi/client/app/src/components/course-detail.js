@@ -1,9 +1,11 @@
 import React from "react";
 import "./course-detail.css";
 import Nav from "./nav";
+import Input from './input';
 
 export default class CourseDetail extends React.Component {
   render(){
+    console.log(this.props);
   return (
     <div>
       <Nav />
@@ -26,6 +28,15 @@ export default class CourseDetail extends React.Component {
                 <label htmlFor="start-date">Start Date:</label>
                 <input type="date" id="start-date" />
               </div>
+
+              
+
+                <div className="test">
+                  <label>Teacher Test</label>
+                <Input name="first" placeholder="First" />
+                <Input name="last" placeholder="Last" />
+                </div>
+
 
 
               <div className="teacher-name">
@@ -57,8 +68,8 @@ export default class CourseDetail extends React.Component {
               <div>
                 <label htmlFor="course-description">Description:</label>
                 <input type="text" id="course-description" />
-                  <div className="dates-div">
-                    <label className="dates-label">Additonal Class Dates</label>
+                  <div className="addtl-dates-div">
+                    <label className="addtl-dates-label">Additonal Class Dates</label>
                   </div>
               </div>
 
