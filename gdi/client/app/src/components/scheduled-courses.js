@@ -19,14 +19,18 @@ export class ScheduledCourses extends React.Component {
             {this.props.courses.map((course, index) => {
               return (
                 <li key={index}>
-                  <Link to="/courseDetail/:courseId">
-                    {course.title}</Link> {course.dates}
-                  
+                  <Link to="/courseDetail">
+                    Course Name
+                    {course.id}
+                  </Link>
+                  {course.dates}
                 </li>
               );
             })}
           </ul>
-          <button className="new-course-button">Schedule Course</button>
+          <Link to="/courseAdd">
+          <button type="submit" className="new-course-button">Schedule Course</button>
+          </Link>
         </div>
       </div>
     );

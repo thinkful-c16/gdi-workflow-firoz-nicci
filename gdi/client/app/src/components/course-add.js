@@ -1,19 +1,19 @@
 import React from "react";
-import "./course-edit.css";
+import "./course-add.css";
 import Nav from "./nav";
 import Input from './input';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-export default class CourseEdit extends React.Component {
+export default class CourseAdd extends React.Component {
   render(){
-    return (
+    
+  return (
     <div>
       <Nav />
-      <div className="course-edit">
+      <div className="course-add">
         
           <form role="form">
-            <fieldset className="course-inputs">
-              <h1>Course Edit</h1>
+            {/* <fieldset className="course-inputs"> */}
+              <h1>Schedule New Course</h1>
               <div>
                 <label htmlFor="course-name">Course Name:</label>
                 <input type="text" id="course-name" />
@@ -66,12 +66,12 @@ export default class CourseEdit extends React.Component {
 
 
             <div className="course-detail-buttons">
-              {/* <button>Make Live on MeetUp</button> */}
+              <button>Make Live on MeetUp</button>
               <button className="edit-submit-button">Submit</button>
-                            
+              
             </div>    
 
-            </fieldset>
+            {/* </fieldset> */}
           </form>
           
         
