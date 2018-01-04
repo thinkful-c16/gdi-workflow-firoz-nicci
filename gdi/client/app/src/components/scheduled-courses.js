@@ -14,7 +14,7 @@ export class ScheduledCourses extends React.Component {
   clickCourse(course) {
     console.log(course);
     this.props.dispatch(selectCourse(course));
-    this.props.history.push('/courseDetail')
+    this.props.history.push("/courseDetail");
   }
 
   render() {
@@ -27,11 +27,12 @@ export class ScheduledCourses extends React.Component {
           <h1>Scheduled Courses</h1>
           <ul>
             {this.props.courses.map((course, index) => {
-              console.log(this.props);
               return (
                 <li key={index}>
-                  <a href="#" onClick={() => this.clickCourse(course)}>{course.course.name}</a>
-                  {course.dates[0][0]}
+                  <a href="#" onClick={() => this.clickCourse(course)}>
+                    {course.course.name}
+                  </a>
+                  {/* {course.dates[0][0]} */}
                 </li>
               );
             })}
