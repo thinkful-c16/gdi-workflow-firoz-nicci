@@ -2,7 +2,7 @@ import React from "react";
 import "./course-detail.css";
 import Nav from "./nav";
 import { connect } from "react-redux";
-import { fetchScheduledCourses, selectCourse } from "../actions";
+import { fetchScheduledCourses, selectCourse, editCourse } from "../actions";
 //import Form from './form';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import scheduledCourses from "../reducers";
@@ -11,6 +11,12 @@ export class CourseDetail extends React.Component {
   componentDidMount() {
     //use if condition if needed with redirect for people trying to access url directly
   }
+
+  // clickEdit(course) {
+  //   console.log(course);
+  //   this.props.dispatch(editCourse(course));
+  //   this.props.history.push("/course-edit");
+  // }
 
   render() {
     console.log(this.props.course);

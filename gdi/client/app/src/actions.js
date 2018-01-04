@@ -31,12 +31,20 @@ export const fetchScheduledCoursesError = (error, message) => {
 };
 
 export const SELECT_COURSE = "SELECT_COURSE";
-export const selectCourse = (course) => {
+export const selectCourse = course => {
   return {
     type: SELECT_COURSE,
     course
   };
 };
+
+// export const EDIT_COURSE = "EDIT_COURSE";
+// export const editCourse = course => {
+//   return {
+//     type: EDIT_COURSE,
+//     course
+//   };
+// };
 
 // ===== ASYNC FETCH =====
 export const fetchScheduledCourses = () => dispatch => {
