@@ -50,7 +50,10 @@ export class CourseDetail extends React.Component {
             <div className="teacher-name">
               <label>Teacher Name:</label>
               <select name="instructor">
-                <option value="">{courseVal.instructor.firstName} {courseVal.instructor.lastName}</option>
+                <option value="">
+                  {courseVal.instructor.firstName}{" "}
+                  {courseVal.instructor.lastName}
+                </option>
                 <option value="">Teacher2</option>
                 <option value="">Teacher3</option>
               </select>

@@ -116,7 +116,7 @@ export default class CourseAdd extends React.Component {
             <div>
               <label htmlFor="venue">Venue:</label>
               <select name="venue">
-              <option value="">Venue1</option>
+                <option value="">Venue1</option>
                 <option value="">Venue2</option>
                 <option value="">Venue3</option>
               </select>
