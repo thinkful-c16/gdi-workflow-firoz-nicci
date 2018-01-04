@@ -14,13 +14,16 @@ export class ScheduledCourses extends React.Component {
   clickCourse(course) {
     console.log(course);
     this.props.dispatch(selectCourse(course));
-    this.props.history.push('/courseDetail')
+    this.props.history.push(`/course-detail/${course._id}`)
   }
 
   render() {
     // if (this.props.loading) {
     //   return <Spinner name="line-scale-pulse-out-rapid" noFadeIn/>;
     // }
+    if (!this.props.courses) {
+      return <h1>Loading</h1>
+    }
     return (
       <div>
         <div className="home-page">
@@ -31,7 +34,7 @@ export class ScheduledCourses extends React.Component {
               return (
                 <li key={index}>
                   <a href="#" onClick={() => this.clickCourse(course)}>{course.course.name}</a>
-                  {course.dates[0][0]}
+                  {/* {course.dates[0][0]} */}
                 </li>
               );
             })}
