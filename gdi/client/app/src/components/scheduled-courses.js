@@ -21,6 +21,7 @@ export class ScheduledCourses extends React.Component {
     // if (this.props.loading) {
     //   return <Spinner name="line-scale-pulse-out-rapid" noFadeIn/>;
     // }
+    console.log(this.props);
     return (
       <div>
         <div className="home-page">
@@ -31,7 +32,7 @@ export class ScheduledCourses extends React.Component {
               return (
                 <li key={index}>
                   <a href="#" onClick={() => this.clickCourse(course)}>{course.course.name}</a>
-                  {course.dates[0][0]}
+                  {/* {course.dates[0][0]} */}
                 </li>
               );
             })}
@@ -49,7 +50,7 @@ export class ScheduledCourses extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    courses: state.scheduledCourses,
+    courses: state.scheduledCourses.scheduledCourses,
     loading: state.loading
   };
 };

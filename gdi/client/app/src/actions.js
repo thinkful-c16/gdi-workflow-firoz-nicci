@@ -59,6 +59,26 @@ export const fetchScheduledCourses = () => dispatch => {
     });
 };
 
+export const addNewCourse = (values) => dispatch => {
+  //dispatch(addNewCourseRequest());
+  fetch("http://localhost:8080/api/scheduledCourses", {
+    method: 'post',
+    body: JSON.stringify(values)
+  })
+  .then(res => {
+    if (!res.ok) {
+      return console.error(`There was a problem!`);
+    }
+    return res.json();
+  })
+  .then(newCourse => {
+    console.log(newCourse);
+  })
+  .catch(err => {
+    console.log(err)
+  });
+};
+
 // =====  PEOPLE =====
 
 // =====  VENUES =====

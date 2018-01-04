@@ -2,8 +2,16 @@ import React from "react";
 import "./course-add.css";
 import Nav from "./nav";
 import Form from './form';
+import { Field, reduxForm } from 'redux-form';
+import { addNewCourse } from '../actions';
 
-export default class CourseAdd extends React.Component {
+class CourseAdd extends React.Component {
+
+  onSubmit = values => {
+    console.log(values);
+    this.props.dispatch(addNewCourse());
+  }
+
   render(){
     
   return (
@@ -11,49 +19,55 @@ export default class CourseAdd extends React.Component {
       <Nav />
       <div className="course-add">
         
-          <form role="form">
+          <form role="form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values) )}>
             {/* <fieldset className="course-inputs"> */}
               <h1>Schedule New Course</h1>
               <div>
                 <label htmlFor="course-name">Course Name:</label>
-                <input type="text" id="course-name" />
+                <Field component="select" type="text" name="course" id="course-name" >
+                  <option>Select One...</option>
+                  <option value="5a4d0096c1e8fa67e1151049">Intro to JavaScript (JS)</option>
+                  <option value="5a4d015ec1e8fa67e115108b">Intro to HTML/CSS</option>
+                  <option value="5a4d0139c1e8fa67e115107b">Intro Salesforce App Dev</option>
+                  <option value="5a4d0151c1e8fa67e1151087">Intro SQL</option>
+                </Field>
               </div>
               
-              <div className="input-icon">
+              {/* <div className="input-icon">
                 <label htmlFor="cost">Cost:</label>
-                <input type="number" id="cost" />
+                <Field component="input" type="number" id="cost" />
               </div>
 
               <div>
                 <label htmlFor="start-date">Start Date:</label>
-                <input type="date" id="start-date" />
+                <Field component="input" type="date" id="start-date" />
               </div>
 
   
               <div className="teacher-name">
                 <label>Teacher Name:</label>
-                <input type="text" name="firstname"  className="first-name" placeholder="First"/>
-                <input type="text" name="lasttname" className="last-name" placeholder="Last"/>
-                <input type="text" name="slack" className="slack-name" placeholder="Slack Handle"/>
+                <Field component="input" type="text" name="firstName"  className="first-name" placeholder="First"/>
+                <Field component="input" type="text" name="lastName" className="last-name" placeholder="Last"/>
+                <Field component="input" type="text" name="slack" className="slack-name" placeholder="Slack Handle"/>
               </div>
 
               <div>
                 <label htmlFor="ta-name">TA Name:</label>
-                <input type="text" name="firstname"  className="first-name" placeholder="First"/>
-                <input type="text" name="lasttname" className="last-name" placeholder="Last" />
-                <input type="text" name="slack" className="slack-name" placeholder="Slack Handle"/>
+                <Field component="input" type="text" name="firstName"  className="first-name" placeholder="First"/>
+                <Field component="input" type="text" name="lastName" className="last-name" placeholder="Last" />
+                <Field component="input" type="text" name="slack" className="slack-name" placeholder="Slack Handle"/>
               </div>
 
               <div>
               <label htmlFor="class-coord">Class Coord.:</label>
-              <input type="text" name="firstname" className="first-name" placeholder="First" />
-              <input type="text" name="lasttname" className="last-name" placeholder="Last" />
-              <input type="text" name="slack" className="slack-name" placeholder="Slack Handle"/>
+              <Field component="input" type="text" name="firstName" className="first-name" placeholder="First" />
+              <Field component="input" type="text" name="lastName" className="last-name" placeholder="Last" />
+              <Field component="input" type="text" name="slack" className="slack-name" placeholder="Slack Handle"/>
               </div>
 
               <div>
                 <label htmlFor="venue">Venue:</label>
-                <input type="text" id="venue" />
+                <Field component="input" type="text" id="venue" />
               </div>
               
               <div>
@@ -62,7 +76,7 @@ export default class CourseAdd extends React.Component {
                   <div className="addtl-dates-div">
                     <label className="addtl-dates-label">Additonal Class Dates</label>
                   </div>
-              </div>
+              </div> */}
 
 
             <div className="course-detail-buttons">
@@ -80,4 +94,10 @@ export default class CourseAdd extends React.Component {
   );
 }
 }
+
+const courseAddForm = reduxForm({
+  form: 'courseAdd'
+})(CourseAdd);
+
+export default courseAddForm;
 
