@@ -20,7 +20,7 @@ export class CourseDetail extends React.Component {
         <Nav />
         <div className="course-detail">
           <form role="form">
-            <h1>Course Detail</h1>
+            <h2>Course Detail</h2>
             <div>
               <label htmlFor="course-name">Course Name:</label>
 
@@ -49,14 +49,20 @@ export class CourseDetail extends React.Component {
 
             <div className="teacher-name">
               <label>Teacher Name:</label>
-              <input
+              <select name="instructor">
+                <option value="">{courseVal.instructor.firstName} {courseVal.instructor.lastName}</option>
+                <option value="">Teacher2</option>
+                <option value="">Teacher3</option>
+              </select>
+
+              {/* <input
                 type="text"
                 name="firstname"
                 className="first-name"
                 placeholder="First"
                 defaultValue={courseVal.instructor.firstName}
-              />
-              <input
+              /> */}
+              {/* <input
                 type="text"
                 name="lasttname"
                 className="last-name"
@@ -69,7 +75,7 @@ export class CourseDetail extends React.Component {
                 className="slack-name"
                 placeholder="Slack Handle"
                 defaultValue={courseVal.instructor.slackHandle}
-              />
+              /> */}
             </div>
 
             <div>
@@ -141,14 +147,14 @@ export class CourseDetail extends React.Component {
               />
               <div className="addtl-dates-div">
                 <label className="addtl-dates-label">
-                  Additonal Class Dates
+                  {/* Additonal Class Dates */}
                 </label>
               </div>
             </div>
 
             <div className="course-detail-buttons">
               <button>Make Live on MeetUp</button>
-              <Link to="/courseEdit">
+              <Link to="/course-edit">
                 <button className="align-button">Edit</button>
               </Link>
               <button className="align-button">Delete</button>

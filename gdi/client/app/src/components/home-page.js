@@ -7,12 +7,9 @@ import Venues from "./venues";
 import CourseEdit from "./course-edit";
 import CourseDetail from "./course-detail";
 import CourseAdd from "./course-add";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, /*Link*/ } from "react-router-dom";
 
 export default class HomePage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
@@ -21,9 +18,9 @@ export default class HomePage extends React.Component {
           <Route exact path="/" component={ScheduledCourses} />
           <Route exact path="/" component={People} />
           <Route exact path="/" component={Venues} />
-          <Route exact path="/courseDetail" component={CourseDetail} />
-          <Route exact path="/courseEdit" component={CourseEdit} />
-          <Route exact path="/courseAdd" component={CourseAdd} />
+          <Route exact path="/course-detail" component={CourseDetail} />
+          <Route exact path="/course-edit" component={CourseEdit} />
+          <Route exact path="/course-add" component={CourseAdd} />
         </div>
       </Router>
     );

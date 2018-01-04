@@ -8,6 +8,24 @@ body {
   box-sizing: border-box;
 }
 
+::-webkit-clear-button {
+  display: none;
+  -webkit-appearance: none;
+}
+
+::-webkit-inner-spin-button {
+  display: none;
+}
+
+::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  display: block;
+  background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+  width: 25px;
+  height: 20px;
+}
+
 /* .course-inputs {
   display: inline-block;
   margin: auto;
@@ -41,18 +59,10 @@ button {
   margin-bottom: 5px;
 }
 
-button:hover {
-  background-color: green;
-  color: white;
-  font-weight: bold;
-  /* font-size: 110%; */
-}
-
-div.course-edit{
+div.course-edit {
   display: block;
   margin: auto;
   border-radius: 10px;
-  
 }
 .course-detail-buttons {
   float: right;

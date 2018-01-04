@@ -13,8 +13,6 @@ div.home-page {
   box-shadow: 8px 8px 10px;
 }
 
-
-
 .venue-buttons {
   display: block;
   border-radius: 10px;
@@ -23,14 +21,8 @@ div.home-page {
   right: 0;
   bottom: 0;
   margin: 5px;
-  
 }
 
 .edit-venue {
   width: 100%;
-}
-
-div.search {
-  display: block;
-  width: 60%;
 }

@@ -45,12 +45,7 @@ button {
   margin-bottom: 5px;
 }
 
-button:hover {
-  background-color: green;
-  color: white;
-  font-weight: bold;
-  /* font-size: 110%; */
-}
+
 
 div.course-add{
   display: block;

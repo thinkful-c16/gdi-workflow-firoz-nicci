@@ -52,14 +52,6 @@ button {
   margin-bottom: 5px;
 }
 
-button:hover {
-  background-color: green;
-  color: white;
-  font-weight: bold;
-}
-
-
-
 .course-detail-buttons {
   float: right;
 }

@@ -14,7 +14,7 @@ export class ScheduledCourses extends React.Component {
   clickCourse(course) {
     console.log(course);
     this.props.dispatch(selectCourse(course));
-    this.props.history.push("/courseDetail");
+    this.props.history.push("/course-detail");
   }
 
   render() {
@@ -25,7 +25,7 @@ export class ScheduledCourses extends React.Component {
       <div>
         <div className="home-page">
           <h1>Scheduled Courses</h1>
-          <ul>
+          <ul className="home-page-ul">
             {this.props.courses.map((course, index) => {
               return (
                 <li key={index}>
@@ -37,7 +37,7 @@ export class ScheduledCourses extends React.Component {
               );
             })}
           </ul>
-          <Link to="/courseAdd">
+          <Link to="/course-add">
             <button type="submit" className="new-course-button">
               Schedule Course
             </button>

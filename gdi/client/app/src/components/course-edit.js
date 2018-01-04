@@ -11,11 +11,16 @@ export default class CourseEdit extends React.Component {
         <Nav />
         <div className="course-edit">
           <form role="form">
-            <h1>Course Edit</h1>
+            <h2>Course Edit</h2>
             <div>
               <label htmlFor="course-name">Course Name:</label>
-              <input type="text" id="course-name" name="course"
-              size="31" />
+              <select name="course">
+                <option value="">Course1</option>
+                <option value="">Course1</option>
+                <option value="">Course1</option>
+              </select>
+              {/* <input type="text" id="course-name" name="course"
+              size="31" /> */}
             </div>
 
             <div className="input-icon">
@@ -59,7 +64,7 @@ export default class CourseEdit extends React.Component {
 
             <div>
               <label htmlFor="ta-name">TA Name:</label>
-              <select name="instructor">
+              <select name="tas">
                 <option value="">TA1</option>
                 <option value="">TA2</option>
                 <option value="">TA3</option>
@@ -86,7 +91,7 @@ export default class CourseEdit extends React.Component {
 
             <div>
               <label htmlFor="class-coord">Class Coord.:</label>
-              <select name="instructor">
+              <select name="Coordinator">
                 <option value="">Coordinator1</option>
                 <option value="">Coordinator2</option>
                 <option value="">Coordinator3</option>
@@ -113,7 +118,7 @@ export default class CourseEdit extends React.Component {
 
             <div>
               <label htmlFor="venue">Venue:</label>
-              <select name="instructor">
+              <select name="venue">
                 <option value="">Venue1</option>
                 <option value="">Venue2</option>
                 <option value="">Venue3</option>
@@ -127,7 +132,7 @@ export default class CourseEdit extends React.Component {
               <textarea type="text" id="course-description" />
               <div className="addtl-dates-div">
                 <label className="addtl-dates-label">
-                  Additonal Class Dates
+                  {/* Additonal Class Dates */}
                 </label>
               </div>
             </div>
