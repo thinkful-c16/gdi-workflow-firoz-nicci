@@ -1,47 +1,47 @@
-import scheduledCourses from "./components/scheduled-courses";
+import scheduledCourses from './components/scheduled-courses';
 
 //const API_BASE_URL = "http://localhost:8080/api";
 
 // =====  SCHEDULED COURSES ====
 
 export const FETCH_SCHEDULED_COURSES_REQUEST =
-  "FETCH_SCHEDULED_COURSES_REQUEST";
+  'FETCH_SCHEDULED_COURSES_REQUEST';
 export const fetchScheduledCoursesRequest = () => {
   return {
-    type: FETCH_SCHEDULED_COURSES_REQUEST
+    type: FETCH_SCHEDULED_COURSES_REQUEST,
   };
 };
 
 export const FETCH_SCHEDULED_COURSES_SUCCESS =
-  "FETCH_SCHEDULED_COURSES_SUCCESS";
+  'FETCH_SCHEDULED_COURSES_SUCCESS';
 export const fetchScheduledCoursesSuccess = scheduledCourses => {
   return {
     type: FETCH_SCHEDULED_COURSES_SUCCESS,
-    scheduledCourses
+    scheduledCourses,
   };
 };
 
-export const FETCH_SCHEDULED_COURSES_ERROR = "FETCH_SCHEDULED_COURSES_ERROR";
+export const FETCH_SCHEDULED_COURSES_ERROR = 'FETCH_SCHEDULED_COURSES_ERROR';
 export const fetchScheduledCoursesError = (error, message) => {
   return {
     type: FETCH_SCHEDULED_COURSES_ERROR,
     error,
-    message
+    message,
   };
 };
 
-export const SELECT_COURSE = "SELECT_COURSE";
-export const selectCourse = (course) => {
+export const SELECT_COURSE = 'SELECT_COURSE';
+export const selectCourse = course => {
   return {
     type: SELECT_COURSE,
-    course
+    course,
   };
 };
 
 // ===== ASYNC FETCH =====
 export const fetchScheduledCourses = () => dispatch => {
   dispatch(fetchScheduledCoursesRequest());
-  fetch("http://localhost:8080/api/scheduledCourses")
+  fetch('http://localhost:8080/api/scheduledCourses')
     .then(res => {
       if (!res.ok) {
         return console.error(`There was a problem!`);
@@ -54,7 +54,7 @@ export const fetchScheduledCourses = () => dispatch => {
     })
     .catch(error => {
       dispatch(
-        fetchScheduledCoursesError(error, `Sorry, there was a problem.`)
+        fetchScheduledCoursesError(error, `Sorry, there was a problem.`),
       );
     });
 };
@@ -62,3 +62,32 @@ export const fetchScheduledCourses = () => dispatch => {
 // =====  PEOPLE =====
 
 // =====  VENUES =====
+
+export const FETCH_SCHEDULED_COURSE = 'FETCH_SCHEDULED_COURSE';
+export const fetchScheduledCourse = _id => {
+  return dispatch => {
+    dispatch({ type: 'FETCH_SCHEDULED_COURSE_REQUEST' });
+    fetch(`http://localhost:8080/api/scheduledCourses/${_id}`)
+      .then(res => {
+        console.log('====================================');
+        console.log(res);
+        console.log('====================================');
+        if (!res.ok) {
+          return console.error(`There was a problem!`);
+        }
+        return res.json();
+      })
+      .then(course => {
+        console.log(course);
+        dispatch({
+          type: 'FETCH_SCHEDULED_COURSE_SUCCESS',
+          course,
+        });
+      })
+      .catch(error => {
+        dispatch(
+          fetchScheduledCoursesError(error, `Sorry, there was a problem.`),
+        );
+      });
+  };
+};
