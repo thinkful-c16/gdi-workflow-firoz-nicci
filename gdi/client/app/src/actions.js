@@ -60,10 +60,16 @@ export const fetchScheduledCourses = () => dispatch => {
 };
 
 export const addNewCourse = (values) => dispatch => {
+  console.log(values);
   //dispatch(addNewCourseRequest());
+  const myHeaders = new Headers({
+    "Content-Type": "application/json"
+  });
+  
   fetch("http://localhost:8080/api/scheduledCourses", {
     method: 'post',
-    body: JSON.stringify(values)
+    body: JSON.stringify(values),
+    headers: myHeaders
   })
   .then(res => {
     if (!res.ok) {
