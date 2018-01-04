@@ -10,7 +10,7 @@ body {
 
 div.course-detail {
   display: block;
-  margin: auto;
+  margin-left: 100px;
   border-radius: 10px;
 }
 

@@ -5,11 +5,13 @@ import {
   SELECT_COURSE
 } from "./actions";
 
+import { FETCH_SINGLE_COURSE_SUCCESS } from './actions.js';
+
 const initialState = {
   scheduledCourses: [],
   loading: false,
   error: null,
-  selectedCourse: null
+  selectedCourse: {}
 };
 
 export default function scheduledCourses(state = initialState, action) {
@@ -32,7 +34,13 @@ export default function scheduledCourses(state = initialState, action) {
     return Object.assign({}, state, {
       selectedCourse: action.course
     });
+  } else if (action.type === FETCH_SINGLE_COURSE_SUCCESS) {
+    console.log(action);  
+    return Object.assign({}, state, {
+        selectedCourse: action.singleCourse
+      })
   }
-
   return state;
 }
+
+

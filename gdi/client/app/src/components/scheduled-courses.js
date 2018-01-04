@@ -21,22 +21,29 @@ export class ScheduledCourses extends React.Component {
     // if (this.props.loading) {
     //   return <Spinner name="line-scale-pulse-out-rapid" noFadeIn/>;
     // }
-    console.log(this.props);
+    //console.log(this.props);
     return (
       <div>
         <div className="home-page">
           <h1>Scheduled Courses</h1>
           <ul>
             {this.props.courses.map((course, index) => {
-              console.log(this.props);
+              //console.log(course);
+              // return (
+              //   <li key={index}>
+              //     <a href="#" onClick={() => this.clickCourse(course)}>{course.course.name}</a>
+              //     {/* {course.dates[0][0]} */}
+              //   </li>
+              // );
+
               return (
                 <li key={index}>
-                  <a href="#" onClick={() => this.clickCourse(course)}>{course.course.name}</a>
-                  {/* {course.dates[0][0]} */}
+                  <Link to={`/courseDetail/${course._id}`}>{course.course.name}</Link>
                 </li>
               );
             })}
           </ul>
+
           <Link to="/courseAdd">
             <button type="submit" className="new-course-button">
               Schedule Course

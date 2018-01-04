@@ -38,6 +38,19 @@ export const selectCourse = (course) => {
   };
 };
 
+// ===== SingleCourse Action =====
+export const FETCH_SINGLE_COURSE_SUCCESS =
+  "FETCH_SINGLE_COURSE_SUCCESS";
+export const fetchSingleCourseSuccess = singleCourse => {
+  //console.log(singleCourse);
+  return {
+    type: FETCH_SINGLE_COURSE_SUCCESS,
+    singleCourse
+  };
+};
+
+
+
 // ===== ASYNC FETCH =====
 export const fetchScheduledCourses = () => dispatch => {
   dispatch(fetchScheduledCoursesRequest());
@@ -83,6 +96,27 @@ export const addNewCourse = (values) => dispatch => {
   .catch(err => {
     console.log(err)
   });
+};
+
+export const fetchSingleCourse = (id) => dispatch => {
+  //dispatch(fetchSingleCourseRequest());
+  fetch(`http://localhost:8080/api/scheduledCourses/${id}`)
+    .then(res => {
+      if (!res.ok) {
+        return console.error(`There was a problem!`);
+      }
+      return res.json();
+    })
+    .then(singleCourse => {
+      //console.log(singleCourse);
+      dispatch(fetchSingleCourseSuccess(singleCourse));
+    })
+    .catch(error => {
+      dispatch(
+        console.log(error)
+        //fetchSingleCourseError(error, `Sorry, there was a problem.`)
+      );
+    });
 };
 
 // =====  PEOPLE =====
