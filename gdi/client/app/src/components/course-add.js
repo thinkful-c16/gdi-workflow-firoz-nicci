@@ -80,54 +80,6 @@ class CourseAdd extends React.Component {
                 <Field component="input" type="text" name="dates" id="dates" />
               </div>
 
-              
-              
-              {/* <div className="input-icon">
-                <label htmlFor="cost">Cost:</label>
-                <Field component="input" type="number" id="cost" />
-              </div>
-
-              <div>
-                <label htmlFor="start-date">Start Date:</label>
-                <Field component="input" type="date" id="start-date" />
-              </div>
-
-  
-              <div className="teacher-name">
-                <label>Teacher Name:</label>
-                <Field component="input" type="text" name="firstName"  className="first-name" placeholder="First"/>
-                <Field component="input" type="text" name="lastName" className="last-name" placeholder="Last"/>
-                <Field component="input" type="text" name="slack" className="slack-name" placeholder="Slack Handle"/>
-              </div>
-
-              <div>
-                <label htmlFor="ta-name">TA Name:</label>
-                <Field component="input" type="text" name="firstName"  className="first-name" placeholder="First"/>
-                <Field component="input" type="text" name="lastName" className="last-name" placeholder="Last" />
-                <Field component="input" type="text" name="slack" className="slack-name" placeholder="Slack Handle"/>
-              </div>
-
-              <div>
-              <label htmlFor="class-coord">Class Coord.:</label>
-              <Field component="input" type="text" name="firstName" className="first-name" placeholder="First" />
-              <Field component="input" type="text" name="lastName" className="last-name" placeholder="Last" />
-              <Field component="input" type="text" name="slack" className="slack-name" placeholder="Slack Handle"/>
-              </div>
-
-              <div>
-                <label htmlFor="venue">Venue:</label>
-                <Field component="input" type="text" id="venue" />
-              </div>
-              
-              <div>
-                <label htmlFor="course-description">Description:</label>
-                <textarea type="text" id="course-description" />
-                  <div className="addtl-dates-div">
-                    <label className="addtl-dates-label">Additonal Class Dates</label>
-                  </div>
-              </div> */}
-
-
             <div className="course-detail-buttons">
               <button>Make Live on MeetUp</button>
               <button className="edit-submit-button">Submit</button>
