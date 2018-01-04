@@ -31,7 +31,7 @@ export const fetchScheduledCoursesError = (error, message) => {
 };
 
 export const SELECT_COURSE = "SELECT_COURSE";
-export const selectCourse = (course) => {
+export const selectCourse = course => {
   return {
     type: SELECT_COURSE,
     course
@@ -72,30 +72,57 @@ export const fetchScheduledCourses = () => dispatch => {
     });
 };
 
-export const addNewCourse = (values) => dispatch => {
+export const addNewCourse = values => dispatch => {
   console.log(values);
   //dispatch(addNewCourseRequest());
   const myHeaders = new Headers({
     "Content-Type": "application/json"
   });
-  
+
   fetch("http://localhost:8080/api/scheduledCourses", {
-    method: 'post',
+    method: "post",
     body: JSON.stringify(values),
     headers: myHeaders
   })
-  .then(res => {
-    if (!res.ok) {
-      return console.error(`There was a problem!`);
-    }
-    return res.json();
-  })
-  .then(newCourse => {
-    console.log(newCourse);
-  })
-  .catch(err => {
-    console.log(err)
+    .then(res => {
+      if (!res.ok) {
+        return console.error(`There was a problem!`);
+      }
+      return res.json();
+    })
+    .then(newCourse => {
+      console.log(newCourse);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+// === edit course ===
+export const editCourse = values => dispatch => {
+  console.log(values);
+
+  const myHeaders = new Headers({
+    "Content-Type": "application/json"
   });
+
+  fetch("http://localhost:8080/api/scheduledCourses/:id", {
+    method: "put",
+    body: JSON.stringify(values),
+    headers: myHeaders
+  })
+    .then(res => {
+      if (!res.ok) {
+        return console.error(`There was a problem!`);
+      }
+      return res.json();
+    })
+    .then(updatedCourse => {
+      console.log(updatedCourse);
+    })
+    .catch(err => {
+      console.log(err);
+    });
 };
 
 export const fetchSingleCourse = (id) => dispatch => {
