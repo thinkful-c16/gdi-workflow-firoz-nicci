@@ -2,12 +2,12 @@ import React from "react";
 import "./course-detail.css";
 import Nav from "./nav";
 import { connect } from "react-redux";
-import {
-  fetchScheduledCourses,
-  selectCourse,
-  fetchSingleCourse,
-  editCourse
-} from "../actions";
+// import {
+//   fetchScheduledCourses,
+//   selectCourse,
+//   fetchSingleCourse,
+//   editCourse
+// } from "../actions";
 import { fetchScheduledCourses, selectCourse, fetchSingleCourse, meetupApiProxy } from "../actions";
 //import Form from './form';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -21,9 +21,9 @@ export class CourseDetail extends React.Component {
     this.props.dispatch(fetchSingleCourse(courseId));
   }
 
-  clickEdit(course) {
-    this.props.dispatch(editCourse(course));
-  }
+  // clickEdit(course) {
+  //   this.props.dispatch(editCourse(course));
+  // }
   writeDesc() {
     let text = `<p>This ${this.props.course.course.days}-day ${this.props.course.course.name} course will meet on ${this.props.course.dates[0]} from 9am-4pm. The $${this.props.course.course.price} payment covers the 6 hour class.</p>`
 
@@ -78,10 +78,10 @@ export class CourseDetail extends React.Component {
       ))
   }
 
-  render(){
-    //console.log(this.props.course)
+  // render(){
+  //   //console.log(this.props.course)
     
-    if(this.props.course._id) {
+  //   if(this.props.course._id) {
 
   render() {
     if (this.props.course._id) {
@@ -110,8 +110,7 @@ export class CourseDetail extends React.Component {
 
               <div>
                 <h3>Volunteers</h3>
-<<<<<<< HEAD
-                <p>
+                {/* <p>
                   GDI Coordinator: {this.props.course.coordinator.firstName}{" "}
                   {this.props.course.coordinator.lastName}
                 </p>
@@ -122,12 +121,10 @@ export class CourseDetail extends React.Component {
                 <p>
                   Teaching Assistants: {this.props.course.tas[0].firstName}{" "}
                   {this.props.course.tas[0].lastName}
-                </p>
-=======
+                </p> */}
                 <p>GDI Coordinator: {this.props.course.coordinator.firstName} {this.props.course.coordinator.lastName} (Slack: @{this.props.course.coordinator.slackHandle})</p>
                 <p>Instructor: {this.props.course.instructor.firstName} {this.props.course.instructor.lastName} (Slack: @{this.props.course.instructor.slackHandle})</p>
                 <p>Teaching Assistants: {this.props.course.tas[0].firstName} {this.props.course.tas[0].lastName} (Slack: @{this.props.course.tas[0].slackHandle})</p>
->>>>>>> 0b07c36395eb1a994f913bf36b6b10cc160a6a21
               </div>
 
               <div>
@@ -144,14 +141,12 @@ export class CourseDetail extends React.Component {
                   Map to location
                 </a>
               </div>
-<<<<<<< HEAD
-              <div className="course-detail-buttons">
-                <Link to={`/course-edit/${this.props.course._id}`}>
+              {/* <div className="course-detail-buttons">
+                <Link to={`/courseEdit/${this.props.course._id}`}>
                   <button className="edit-submit-button">Edit</button>
                 </Link>
-              </div>
+              </div> */}
             </div>
-=======
 
               <div>
                 <h3>MeetUp Description</h3>
@@ -167,7 +162,6 @@ export class CourseDetail extends React.Component {
                 </p>
 
               </div>
->>>>>>> 0b07c36395eb1a994f913bf36b6b10cc160a6a21
           </div>
         </div>
       );
