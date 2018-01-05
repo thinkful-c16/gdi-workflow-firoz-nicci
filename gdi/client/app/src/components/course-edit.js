@@ -4,13 +4,17 @@ import Nav from "./nav";
 import Form from "./form";
 import { Field, reduxForm, arrayPush, arrayMove } from "redux-form";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { editCourse, selectCourse } from "../actions";
+import { editCourse, selectCourse, fetchSingleCourse } from "../actions";
 
 export class CourseEdit extends React.Component {
   onEditSubmit = values => {
     // values.dates = values.dates.split(",");
     this.props.dispatch(editCourse(values));
   };
+
+  // getCourse = () => {
+  //   this.props.dispatch(fetchSingleCourse(this.props.match.params.id));
+  // };
 
   selectCourse() {
     let courseOptions = ["Intro to JS", "Intro to HTML"];
@@ -19,7 +23,7 @@ export class CourseEdit extends React.Component {
     for (let i = 0; i < courseOptions.length; i++) {
       selectCourses.push(<option key={i}>{courseOptions[i]}</option>);
     }
-    console.log(`adadd ${selectCourses}`);
+    console.log(`selectCourses gives: ${selectCourses}`);
     return selectCourses;
   }
 
@@ -38,9 +42,10 @@ export class CourseEdit extends React.Component {
               this.onEditSubmit(values)
             )}
           >
-            <h1>Course Edit</h1>
+            <h2>Course Edit</h2>
             <div>
               <label htmlFor="course-name">Course Name:</label>
+
               <Field
                 component="select"
                 type="text"
@@ -50,17 +55,6 @@ export class CourseEdit extends React.Component {
               >
                 <option>Select One...</option>
                 {this.selectCourse()}
-
-                {/* <option value="5a4d0096c1e8fa67e1151049">
-                  Intro to JavaScript (JS)
-                </option>
-                <option value="5a4d015ec1e8fa67e115108b">
-                  Intro to HTML/CSS
-                </option>
-                <option value="5a4d0139c1e8fa67e115107b">
-                  Intro Salesforce App Dev
-                </option>
-                <option value="5a4d0151c1e8fa67e1151087">Intro SQL</option> */}
               </Field>
             </div>
 

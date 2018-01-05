@@ -38,13 +38,13 @@ export class ScheduledCourses extends React.Component {
 
               return (
                 <li key={index}>
-                  <Link to={`/courseDetail/${course._id}`}>{course.course.name}</Link>
+                  <Link to={`/course-detail/${course._id}`}>{course.course.name}</Link>
                 </li>
               );
             })}
           </ul>
 
-          <Link to="/courseAdd">
+          <Link to="/course-add">
             <button type="submit" className="new-course-button">
               Schedule Course
             </button>

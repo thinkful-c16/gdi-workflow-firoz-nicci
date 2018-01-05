@@ -63,7 +63,7 @@ div.course-add{
   float: right;
 }
 
-.edit-submit-button {
+button.submit-button {
   display: inline-block;
   text-align: center;
   width: 100%;

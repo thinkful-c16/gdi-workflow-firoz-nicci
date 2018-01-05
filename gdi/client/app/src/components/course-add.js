@@ -23,7 +23,7 @@ class CourseAdd extends React.Component {
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
           >
             {/* <fieldset className="course-inputs"> */}
-            <h1>Schedule New Course</h1>
+            <h2>Schedule New Course</h2>
             <div>
               <label htmlFor="course-name">Course Name:</label>
               <Field
@@ -112,7 +112,7 @@ class CourseAdd extends React.Component {
 
             <div className="course-detail-buttons">
               <button>Make Live on MeetUp</button>
-              <button className="edit-submit-button">Submit</button>
+              <button className="submit-button">Submit</button>
             </div>
 
             {/* </fieldset> */}
@@ -124,7 +124,7 @@ class CourseAdd extends React.Component {
 }
 
 const courseAddForm = reduxForm({
-  form: "courseAdd"
+  form: "course-add"
 })(CourseAdd);
 
 export default courseAddForm;

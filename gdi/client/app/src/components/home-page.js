@@ -21,9 +21,9 @@ export default class HomePage extends React.Component {
           <Route exact path="/" component={ScheduledCourses} />
           <Route exact path="/" component={People} />
           <Route exact path="/" component={Venues} />
-          <Route exact path="/courseDetail/:id" component={CourseDetail} />
-          <Route exact path="/courseEdit" component={CourseEdit} />
-          <Route exact path="/courseAdd" component={CourseAdd} />
+          <Route exact path="/course-detail/:id" component={CourseDetail} />
+          <Route exact path="/course-edit/:id" component={CourseEdit} />
+          <Route exact path="/course-add" component={CourseAdd} />
         </div>
       </Router>
     );

@@ -84,3 +84,7 @@ button:hover {
   overflow: hidden;
   width: 100%;
 }
+
+button.edit-submit-button {
+  width: 100px;
+}
