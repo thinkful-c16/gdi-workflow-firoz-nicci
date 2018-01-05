@@ -147,6 +147,31 @@ export const fetchSingleCourse = (id) => dispatch => {
     });
 };
 
+export const meetupApiProxy = (text) => dispatch => {
+  //console.log(text);
+  const myHeaders = new Headers({
+    "Content-Type": "application/json"
+  });
+
+  fetch('http://localhost:8080/api/meetup',{
+    method: "post",
+    body: JSON.stringify(text),
+    headers: myHeaders
+  })
+  .then(res => {
+    if(!res.ok) {
+      return console.error(`These was an issue with the API call.`);
+    }
+    return 
+  })
+  .then(apiRes => {
+    console.log(apiRes);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+}
+
 // =====  PEOPLE =====
 
 // =====  VENUES =====
