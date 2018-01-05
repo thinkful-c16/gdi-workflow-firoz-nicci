@@ -29,56 +29,55 @@ export class CourseDetail extends React.Component {
       return (
         <div>
           <Nav />
-          <div className="course-detail">
-            <h2>
-              {console.log(this.props.course)} {this.props.course.course.name}
-            </h2>
-            <h3>{this.props.course.dates[0]}</h3>
+          <div className="wrapper">
+            <div className="course-detail">
+              <h2>
+                {console.log(this.props.course)} {this.props.course.course.name}
+              </h2>
+              <h4>{this.props.course.dates[0]}</h4>
 
-            <div>
-              <h3>General Info</h3>
-              <p>Fee: {this.props.course.course.price}</p>
-              <p>Duration: {this.props.course.course.days} day(s)</p>
+              <div>
+                <h3>General Info</h3>
+                <p>Fee: {this.props.course.course.price}</p>
+                <p>Duration: {this.props.course.course.days} day(s)</p>
+              </div>
+
+              <div>
+                <h3>Volunteers</h3>
+                <p>
+                  GDI Coordinator: {this.props.course.coordinator.firstName}{" "}
+                  {this.props.course.coordinator.lastName}
+                </p>
+                <p>
+                  Instructor: {this.props.course.instructor.firstName}{" "}
+                  {this.props.course.instructor.lastName}
+                </p>
+                <p>
+                  Teaching Assistants: {this.props.course.tas[0].firstName}{" "}
+                  {this.props.course.tas[0].lastName}
+                </p>
+              </div>
+
+              <div>
+                <h3>Location</h3>
+                <p>{this.props.course.venue.company}</p>
+                <p>{this.props.course.venue.address}</p>
+                <p>{this.props.course.venue.address2}</p>
+                <a
+                  href={`https://www.google.com/maps/dir//${
+                    this.props.course.venue.address
+                  }`}
+                  target="_blank"
+                >
+                  Map to location
+                </a>
+              </div>
+              <div className="course-detail-buttons">
+                <Link to={`/course-edit/${this.props.course._id}`}>
+                  <button className="edit-submit-button">Edit</button>
+                </Link>
+              </div>
             </div>
-
-            <div>
-              <h3>Volunteers</h3>
-              <p>
-                GDI Coordinator: {this.props.course.coordinator.firstName}{" "}
-                {this.props.course.coordinator.lastName}
-              </p>
-              <p>
-                Instructor: {this.props.course.instructor.firstName}{" "}
-                {this.props.course.instructor.lastName}
-              </p>
-              <p>
-                Teaching Assistants: {this.props.course.tas[0].firstName}{" "}
-                {this.props.course.tas[0].lastName}
-              </p>
-            </div>
-
-            <div>
-              <h3>Location</h3>
-              <p>{this.props.course.venue.company}</p>
-              <p>{this.props.course.venue.address}</p>
-              <p>{this.props.course.venue.address2}</p>
-              <a
-                href={`https://www.google.com/maps/dir//${
-                  this.props.course.venue.address
-                }`}
-                target="_blank"
-              >
-                Map to location
-              </a>
-            </div>
-          </div>
-
-          <div className="course-detail-buttons">
-
-            <Link to={`/course-edit/${this.props.course._id}`}>
-              <button className="edit-submit-button">Edit</button>
-            </Link>
-            
           </div>
         </div>
       );

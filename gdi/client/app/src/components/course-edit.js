@@ -1,7 +1,6 @@
 import React from "react";
 import "./course-edit.css";
 import Nav from "./nav";
-import Form from "./form";
 import { Field, reduxForm, arrayPush, arrayMove } from "redux-form";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { editCourse, selectCourse, fetchSingleCourse } from "../actions";
@@ -44,7 +43,9 @@ export class CourseEdit extends React.Component {
           >
             <h2>Course Edit</h2>
             <div>
-              <label htmlFor="course-name">Course Name:</label>
+              <label className="label" htmlFor="course-name">
+                Course Name:
+              </label>
 
               <Field
                 component="select"
@@ -63,7 +64,9 @@ export class CourseEdit extends React.Component {
             </div> */}
 
             <div>
-              <label htmlFor="class-coord">Coordinator Name:</label>
+              <label className="label" htmlFor="class-coord">
+                Coordinator Name:
+              </label>
               <Field
                 component="select"
                 type="text"
@@ -78,7 +81,7 @@ export class CourseEdit extends React.Component {
             </div>
 
             <div className="teacher-name">
-              <label>Instructor Name:</label>
+              <label className="label">Instructor Name:</label>
               <Field
                 component="select"
                 type="text"
@@ -93,7 +96,9 @@ export class CourseEdit extends React.Component {
             </div>
 
             <div>
-              <label htmlFor="ta-name">TA Name:</label>
+              <label className="label" htmlFor="ta-name">
+                TA Name:
+              </label>
               <Field component="select" type="text" name="tas" id="tas-name">
                 <option>Select One...</option>
                 <option value="5a4d0692c1e8fa67e1151176">Laura</option>
@@ -102,7 +107,9 @@ export class CourseEdit extends React.Component {
             </div>
 
             <div>
-              <label htmlFor="venue-name">Venue Name:</label>
+              <label className="label" htmlFor="venue-name">
+                Venue Name:
+              </label>
               <Field
                 component="select"
                 type="text"
@@ -121,16 +128,13 @@ export class CourseEdit extends React.Component {
               </Field>
             </div>
             <div>
-              <label htmlFor="start-date">Course Dates:</label>
+              <label className="label" htmlFor="start-date">
+                Course Dates:
+              </label>
               <input type="text" id="start-date" />
             </div>
 
-            <div>
-              <div className="addtl-dates-div" />
-            </div>
-
             <div className="course-detail-buttons">
-              {/* <button>Make Live on MeetUp</button> */}
               <button className="edit-submit-button">Submit</button>
             </div>
           </form>

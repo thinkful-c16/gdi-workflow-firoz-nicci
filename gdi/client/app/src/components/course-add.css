@@ -56,11 +56,20 @@ div.course-add{
   display: block;
   margin: auto;
   border-radius: 10px;
-  /* border: solid red 1px; */
+  border: solid black 1px;
+  box-shadow: -8px 8px 10px rgb(0, 0, 0);
+  background-color: #f95a61;
+  padding: 10px;
+  padding-left: 0px;
+  margin: 5px auto;
+  width: 600px;
+  height: 350px;
+  position: relative;
 }
 
-.course-detail-buttons {
+div.course-detail-buttons {
   float: right;
+  margin-right: 10px;
 }
 
 button.submit-button {
@@ -70,7 +79,7 @@ button.submit-button {
   margin-right: 3%;
 }
 
-.addtl-dates-div {
+/* .addtl-dates-div {
   display: block;
   float: right;
   font-weight: bold;
@@ -82,4 +91,4 @@ button.submit-button {
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
-}
+} */

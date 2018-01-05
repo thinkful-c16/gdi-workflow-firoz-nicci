@@ -10,10 +10,9 @@ export default function People() {
         </div>
 
         <div className="search">
-          <form>
-            <label className="home-labels">Search People</label>
-            <input type="text" placeholder=" Peter Pickles"/>
-          </form>
+          <label className="home-labels">Search People</label>
+          <input type="text" placeholder=" Peter Pickles" />
+
           <p>Person search results here</p>
         </div>
 
