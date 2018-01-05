@@ -147,7 +147,7 @@ export const fetchSingleCourse = (id) => dispatch => {
 };
 
 export const meetupApiProxy = (text) => dispatch => {
-  console.log(text);
+  //console.log(text);
   const myHeaders = new Headers({
     "Content-Type": "application/json"
   });

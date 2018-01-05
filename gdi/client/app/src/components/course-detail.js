@@ -15,7 +15,7 @@ export class CourseDetail extends React.Component {
     this.props.dispatch(fetchSingleCourse(courseId));
   }
 
-    writeDesc() {
+  writeDesc() {
     let text = `<p>This ${this.props.course.course.days}-day ${this.props.course.course.name} course will meet on ${this.props.course.dates[0]} from 9am-4pm. The $${this.props.course.course.price} payment covers the 6 hour class.</p>`
 
     if(this.props.course.course.name === 'Intro to User Experience (UX)'){
@@ -53,13 +53,25 @@ export class CourseDetail extends React.Component {
     text += `<p>Tech Requirements</p><p>Your laptop. Note: A netbook or tablet is NOT a substitute. If you do not have access to a laptop computer, please email atlanta@girldevelopit.com. GDI Atlanta has loaner laptops for those who do not have access to one.</p><p>If you have any questions prior to registering, please contact us at atlanta@girldevelopit.com</p><p>Financial Need:</p><p>A limited number of scholarships are available for those with a financial hardship. To apply, click here (https://docs.google.com/forms/d/1tQeFIvqNbBOtOt2mRJSVQDqOUbz7PFeMJDzq_mKTkT8/viewform?usp=send_form). Scholarship applicants will be notified shortly after the deadline. Class capacity does not impact scholarship students. Check out this info sheet (https://drive.google.com/a/girldevelopit.com/file/d/0B344HUnWO0EhOFI4SmpWVjE2Yms) about getting course fees covered by your employer.</p><p>Refund Policy:<p><p>Your payment of $65 guarantees your seat in the entire course. Please note that we cannot issue refunds, since there's an overhead to issuing refunds via Meetup.com and we already offer the workshops at such a low cost. We put proceeds into the chapter fund, which we use as our scholarship fund.</p><p>Other Disclaimers:</p><p>Our program and curriculum are geared toward adults over the age of 18; at this time we do not accept minors as students in our courses and workshops.</p><p>About the Teacher:</p>${this.props.course.instructor.bio}<p>Teacher Assistants:</p><p>Along with the teacher, the class has Teacher Assistants (TAs). TAs are available during class to help troubleshoot any questions and help with exercises. If you are interested in volunteering as a TA for this class, please email atlanta@girldevelopit.com.</p><p>Thank you to our host of space, ${this.props.course.venue.company} coding bootcamp at Atlanta Tech Village!</p><p>All attendees are expected to abide by the Girl Develop It Code of Conduct (https://www.girldevelopit.com/code-of-conduct)</p>`;
 
     return text;
-    
   }
   
+  sendProxy(){
+    const finalDesc = this.writeDesc();
+    //console.log(finalDesc);
+    const hours = 4;
+    const milli = (hours * 3600000);
+    this.props.dispatch(meetupApiProxy(
+      {
+        description: finalDesc,
+        duration: milli,
+        name: this.props.course.course.name
+      }
+      ))
+  }
 
   render(){
     //console.log(this.props.course)
-
+    
     if(this.props.course._id) {
 
       return (
@@ -101,16 +113,14 @@ export class CourseDetail extends React.Component {
               <div>
                 <h3>MeetUp Description</h3>
 
-                {/* const finalDesc = {this.writeDesc()}; */}
+                <div id="meetup">
+                  {this.writeDesc()}
+                </div>
 
-                <div id="meetup">{this.writeDesc()}</div>
+                {/* {document.getElementById("meetup").innerHTML = this.writeDesc()} */}
 
                 <p>
-                  <a href="" onClick={this.props.dispatch(meetupApiProxy(
-                    {
-                      text: "<p>This is the desc text</p>"
-                    }
-                    ))}>Make live on Meetup.com</a>
+                  <a href="" onClick={this.sendProxy()}>Make live on Meetup.com</a>
                 </p>
 
               </div>
