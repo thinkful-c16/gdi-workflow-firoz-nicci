@@ -39,17 +39,24 @@ export const selectCourse = course => {
 };
 
 // ===== SingleCourse Action =====
-export const FETCH_SINGLE_COURSE_SUCCESS =
-  "FETCH_SINGLE_COURSE_SUCCESS";
+export const FETCH_SINGLE_COURSE_SUCCESS = "FETCH_SINGLE_COURSE_SUCCESS";
 export const fetchSingleCourseSuccess = singleCourse => {
-  //console.log(singleCourse);
+  // console.log(singleCourse);
   return {
     type: FETCH_SINGLE_COURSE_SUCCESS,
     singleCourse
   };
 };
 
-
+// ===== People Fetch Action =====
+export const FETCH_PEOPLE = "FETCH_PEOPLE";
+export const fetchPeopleSuccess = people => {
+  //console.log(people);
+  return {
+    type: FETCH_PEOPLE,
+    people
+  };
+};
 
 // ===== ASYNC FETCH =====
 export const fetchScheduledCourses = () => dispatch => {
@@ -100,7 +107,7 @@ export const addNewCourse = values => dispatch => {
 
 // === edit course ===
 export const editCourse = values => dispatch => {
-  console.log(values);
+  //console.log(values);
 
   const myHeaders = new Headers({
     "Content-Type": "application/json"
@@ -125,8 +132,7 @@ export const editCourse = values => dispatch => {
     });
 };
 
-
-export const fetchSingleCourse = (id) => dispatch => {
+export const fetchSingleCourse = id => dispatch => {
   //dispatch(fetchSingleCourseRequest());
   fetch(`http://localhost:8080/api/scheduledCourses/${id}`)
     .then(res => {
@@ -136,7 +142,7 @@ export const fetchSingleCourse = (id) => dispatch => {
       return res.json();
     })
     .then(singleCourse => {
-      //console.log(singleCourse);
+      // console.log(singleCourse);
       dispatch(fetchSingleCourseSuccess(singleCourse));
     })
     .catch(error => {
@@ -147,30 +153,47 @@ export const fetchSingleCourse = (id) => dispatch => {
     });
 };
 
-export const meetupApiProxy = (text) => dispatch => {
+export const fetchPeople = () => dispatch => {
+  fetch(`http://localhost:8080/api/people/`)
+    .then(res => {
+      if (!res.ok) {
+        return console.error(`There was a problem!`);
+      }
+      return res.json();
+    })
+    .then(people => {
+      //  console.log(people);
+      dispatch(fetchPeopleSuccess(people));
+    })
+    .catch(error => {
+      dispatch(console.log(error));
+    });
+};
+
+export const meetupApiProxy = text => dispatch => {
   //console.log(text);
   const myHeaders = new Headers({
     "Content-Type": "application/json"
   });
 
-  fetch('http://localhost:8080/api/meetup',{
+  fetch("http://localhost:8080/api/meetup", {
     method: "post",
     body: JSON.stringify(text),
     headers: myHeaders
   })
-  .then(res => {
-    if(!res.ok) {
-      return console.error(`These was an issue with the API call.`);
-    }
-    return 
-  })
-  .then(apiRes => {
-    console.log(apiRes);
-  })
-  .catch(error => {
-    console.log(error);
-  })
-}
+    .then(res => {
+      if (!res.ok) {
+        return console.error(`These was an issue with the API call.`);
+      }
+      return;
+    })
+    .then(apiRes => {
+      console.log(apiRes);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
 
 // =====  PEOPLE =====
 
