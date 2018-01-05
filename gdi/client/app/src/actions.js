@@ -125,6 +125,7 @@ export const editCourse = values => dispatch => {
     });
 };
 
+
 export const fetchSingleCourse = (id) => dispatch => {
   //dispatch(fetchSingleCourseRequest());
   fetch(`http://localhost:8080/api/scheduledCourses/${id}`)

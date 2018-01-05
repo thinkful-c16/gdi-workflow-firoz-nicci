@@ -48,24 +48,33 @@ button:hover {
   /* font-size: 110%; */
 }
 
-div.course-edit{
+div.course-edit {
   display: block;
   margin: auto;
   border-radius: 10px;
-  
-}
-.course-detail-buttons {
-  float: right;
+  border: solid black 1px;
+  box-shadow: -8px 8px 10px rgb(0, 0, 0);
+  background-color: #f95a61;
+  padding: 10px;
+  padding-left: 0px;
+  margin: 5px auto;
+  width: 600px;
+  height: 300px;
+  position: relative;
 }
 
-.edit-submit-button {
+.course-detail-buttons {
+  /* float: right; */
+}
+
+div.edit-submit-button {
   display: inline-block;
   text-align: center;
   width: 100%;
-  margin-right: 3%;
+  margin-right: 10px;
 }
 
-.addtl-dates-div {
+/* .addtl-dates-div {
   display: block;
   float: right;
   font-weight: bold;
@@ -77,4 +86,12 @@ div.course-edit{
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
+} */
+
+.label {
+  width: 160px;
+}
+
+select {
+  border: 1px solid black;
 }

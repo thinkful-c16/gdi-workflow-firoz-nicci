@@ -1,15 +1,16 @@
 
+
 div.home-page {
   display: block;
   position: relative;
-  margin: 15px auto 20px;
+  margin: 25px auto 20px;
   padding: 10px;
   width: 75%;
   border-radius: 10px;
   border: solid black 1px;
-  box-shadow: 8px 8px 10px;
-  
-  
+  box-shadow: 8px 8px 10px rgb(0, 0, 0);
+  background-color: #f95a61;
+  /* color: white; */
 }
 
 button.new-course-button {

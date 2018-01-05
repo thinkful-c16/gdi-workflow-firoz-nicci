@@ -35,7 +35,7 @@ export default function scheduledCourses(state = initialState, action) {
       selectedCourse: action.course
     });
   } else if (action.type === FETCH_SINGLE_COURSE_SUCCESS) {
-    console.log(action);  
+     
     return Object.assign({}, state, {
         selectedCourse: action.singleCourse
       })
