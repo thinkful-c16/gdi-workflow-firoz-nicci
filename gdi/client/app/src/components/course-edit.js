@@ -14,6 +14,7 @@ export class CourseEdit extends React.Component {
   // getCourse = () => {
   //   this.props.dispatch(fetchSingleCourse(this.props.match.params.id));
   // };
+  //test
 
   selectCourse() {
     let courseOptions = ["Intro to JS", "Intro to HTML"];
