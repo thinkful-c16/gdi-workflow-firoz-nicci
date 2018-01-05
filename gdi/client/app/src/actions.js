@@ -49,6 +49,16 @@ export const fetchSingleCourseSuccess = singleCourse => {
   };
 };
 
+// ===== People Fetch Action =====
+export const FETCH_PEOPLE = "FETCH_PEOPLE";
+export const fetchPeopleSuccess = people => {
+  //console.log(people);
+  return {
+    type: FETCH_PEOPLE,
+    people
+  }
+}
+
 
 
 // ===== ASYNC FETCH =====
@@ -146,6 +156,29 @@ export const fetchSingleCourse = (id) => dispatch => {
       );
     });
 };
+
+export const fetchPeople = () => dispatch => {
+  fetch(`http://localhost:8080/api/people/`)
+  .then(res => {
+    if (!res.ok) {
+      return console.error(`There was a problem!`);
+    }
+    return res.json();
+  })
+  .then(people => {
+    //  console.log(people);
+    dispatch(fetchPeopleSuccess(people));
+  })
+  .catch(error => {
+    dispatch(
+      console.log(error)
+    );
+  });
+
+
+}
+
+
 
 export const meetupApiProxy = (text) => dispatch => {
   //console.log(text);

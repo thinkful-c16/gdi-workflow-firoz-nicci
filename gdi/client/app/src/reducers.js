@@ -2,16 +2,36 @@ import {
   FETCH_SCHEDULED_COURSES_REQUEST,
   FETCH_SCHEDULED_COURSES_SUCCESS,
   FETCH_SCHEDULED_COURSES_ERROR,
-  SELECT_COURSE
+  SELECT_COURSE,
+  FETCH_PEOPLE
 } from "./actions";
 
-import { FETCH_SINGLE_COURSE_SUCCESS } from './actions.js';
+import { FETCH_SINGLE_COURSE_SUCCESS } from "./actions.js";
 
 const initialState = {
   scheduledCourses: [],
   loading: false,
   error: null,
-  selectedCourse: {}
+  selectedCourse: {
+    course: { name: "" },
+    instructor: {
+      firstName: "",
+      lastName: ""
+    },
+    coordinator: {
+      firstName: "",
+      lastName: ""
+    },
+    venue: { company: "" },
+    tas: [
+      {
+        firstName: "",
+        lastName: ""
+      }
+    ],
+    dates: []
+  },
+  people: []
 };
 
 export default function scheduledCourses(state = initialState, action) {
@@ -35,12 +55,14 @@ export default function scheduledCourses(state = initialState, action) {
       selectedCourse: action.course
     });
   } else if (action.type === FETCH_SINGLE_COURSE_SUCCESS) {
-     
     return Object.assign({}, state, {
-        selectedCourse: action.singleCourse
-      })
+      selectedCourse: action.singleCourse
+    });
+  } else if (action.type === FETCH_PEOPLE) {
+    // console.log(action.people);
+    return Object.assign({}, state, {
+      people: action.people
+    });
   }
   return state;
 }
-
-

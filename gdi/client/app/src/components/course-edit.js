@@ -4,7 +4,12 @@ import Nav from "./nav";
 import { connect } from "react-redux";
 import { Field, reduxForm, arrayPush, arrayMove } from "redux-form";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { editCourse, selectCourse, fetchSingleCourse } from "../actions";
+import {
+  editCourse,
+  selectCourse,
+  fetchSingleCourse,
+  fetchPeople
+} from "../actions";
 
 export class CourseEdit extends React.Component {
   // onEditSubmit = values => {
@@ -15,22 +20,7 @@ export class CourseEdit extends React.Component {
   componentDidMount() {
     const courseId = this.props.match.params.id;
     this.props.dispatch(fetchSingleCourse(courseId));
-    
-  }
-
-  // getCourse = () => {
-  //   this.props.dispatch(fetchSingleCourse(this.props.match.params.id));
-  // };
-
-  selectCourse() {
-    let courseOptions = ["Intro to JS", "Intro to HTML"];
-    let selectCourses = [];
-
-    for (let i = 0; i < courseOptions.length; i++) {
-      selectCourses.push(<option key={i}>{courseOptions[i]}</option>);
-    }
-    console.log(`selectCourses gives: ${selectCourses}`);
-    return selectCourses;
+    this.props.dispatch(fetchPeople());
   }
 
   onSelect(e) {
@@ -39,7 +29,37 @@ export class CourseEdit extends React.Component {
 
   render() {
     console.log(this.props.singleCourse);
-    console.log(this.props.singleCourse.instructor);
+    //if (this.props.singleCourse.tas.length > 0) { 
+      // console.log(this.props.singleCourse.tas[0].firstName);
+//    }
+
+    //dynamic course coordinator option
+    const courseCoordinator = this.props.people
+      .filter(person => person.role.indexOf("Course Coordinator") > -1)
+      .map(person => (
+        <option key={person.id}>
+          {person.firstName} {person.lastName}
+        </option>
+      ));
+
+    //dynamic course teacher option
+    const courseInstructor = this.props.people
+      .filter(person => person.role.indexOf("Instructor") > -1)
+      .map(person => (
+        <option key={person.id}>
+          {person.firstName} {person.lastName}
+        </option>
+      ));
+
+    //dynamic course TA option
+    const courseTA = this.props.people
+      .filter(person => person.role.indexOf("Teaching Assistant") > -1)
+      .map(person => (
+        <option key={person.id}>
+          {person.firstName} {person.lastName}
+        </option>
+      ));
+
     return (
       <div>
         <Nav />
@@ -63,8 +83,8 @@ export class CourseEdit extends React.Component {
                 id="course-name"
                 onChange={this.onSelect}
               >
-                <option>Select One...</option>
-                {this.selectCourse()}
+                {/* <option>Select one...</option> */}
+                <option>{this.props.singleCourse.course.name}</option>
               </Field>
             </div>
 
@@ -82,10 +102,12 @@ export class CourseEdit extends React.Component {
                 name="coordinator"
                 id="coordinator-name"
               >
-                <option>Select One...</option>
-                <option value="5a4d0692c1e8fa67e115116c">Nicci</option>
-                <option value="5a4d0692c1e8fa67e1151172">Marcy</option>
-                <option value="5a4d0692c1e8fa67e1151174">Megan</option>
+                {/* <option>Select One...</option> */}
+                <option>
+                  {this.props.singleCourse.coordinator.firstName}{" "}
+                  {this.props.singleCourse.coordinator.lastName}
+                </option>
+                {courseCoordinator}
               </Field>
             </div>
 
@@ -97,10 +119,11 @@ export class CourseEdit extends React.Component {
                 name="instructor"
                 id="instructor-name"
               >
-                <option>Select One...</option>
-                <option value="5a4d0692c1e8fa67e115116e">Michelle</option>
-                <option value="5a4d0692c1e8fa67e1151170">Angel</option>
-                <option value="5a4d0692c1e8fa67e115117a">Solomon</option>
+                <option>
+                  {this.props.singleCourse.instructor.firstName}{" "}
+                  {this.props.singleCourse.instructor.lastName}
+                </option>
+                {courseInstructor}
               </Field>
             </div>
 
@@ -109,9 +132,12 @@ export class CourseEdit extends React.Component {
                 TA Name:
               </label>
               <Field component="select" type="text" name="tas" id="tas-name">
-                <option>Select One...</option>
-                <option value="5a4d0692c1e8fa67e1151176">Laura</option>
-                <option value="5a4d0692c1e8fa67e1151178">Bernadette</option>
+                {/* <option>Select One...</option> */}
+                
+                <option>
+                  {this.props.singleCourse.tas[0].firstName}                 {this.props.singleCourse.tas[0].lastName}
+                </option>
+                {courseTA}
               </Field>
             </div>
 
@@ -125,8 +151,8 @@ export class CourseEdit extends React.Component {
                 name="venue"
                 id="venue-name"
               >
-                <option>Select One...</option>
-                <option value="5a4d0643c1e8fa67e1151156">Digital Crafts</option>
+                {/* <option>Select One...</option> */}
+                <option>{this.props.singleCourse.venue.company}</option>
                 <option value="5a4d0643c1e8fa67e1151158">
                   CareerBuilder-Norcross Office
                 </option>
@@ -153,6 +179,23 @@ export class CourseEdit extends React.Component {
   }
 }
 
+CourseEdit.defaultProps = {
+  singleCourse: {
+    course: { name: "" },
+    instructor: {
+      firstName: "",
+      lastName: ""
+    },
+    coordinator: {
+      firstName: "",
+      lastName: ""
+    },
+    venue: { company: "" },
+    tas: [],
+    dates: []
+  }
+};
+
 const courseEdit = reduxForm({
   form: "courseEdit"
 })(CourseEdit);
@@ -160,7 +203,8 @@ const courseEdit = reduxForm({
 const mapStateToProps = (state, props) => {
   // console.log(state);
   return {
-    singleCourse: state.scheduledCourses.selectedCourse
+    singleCourse: state.scheduledCourses.selectedCourse,
+    people: state.scheduledCourses.people
   };
 };
 
