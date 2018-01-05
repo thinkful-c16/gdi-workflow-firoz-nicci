@@ -42,7 +42,7 @@ export const selectCourse = course => {
 export const FETCH_SINGLE_COURSE_SUCCESS =
   "FETCH_SINGLE_COURSE_SUCCESS";
 export const fetchSingleCourseSuccess = singleCourse => {
-  //console.log(singleCourse);
+  // console.log(singleCourse);
   return {
     type: FETCH_SINGLE_COURSE_SUCCESS,
     singleCourse
@@ -136,7 +136,7 @@ export const fetchSingleCourse = (id) => dispatch => {
       return res.json();
     })
     .then(singleCourse => {
-      //console.log(singleCourse);
+      // console.log(singleCourse);
       dispatch(fetchSingleCourseSuccess(singleCourse));
     })
     .catch(error => {

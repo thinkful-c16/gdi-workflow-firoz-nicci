@@ -1,20 +1,26 @@
 import React from "react";
 import "./course-edit.css";
 import Nav from "./nav";
+import { connect } from "react-redux";
 import { Field, reduxForm, arrayPush, arrayMove } from "redux-form";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { editCourse, selectCourse, fetchSingleCourse } from "../actions";
 
 export class CourseEdit extends React.Component {
-  onEditSubmit = values => {
-    // values.dates = values.dates.split(",");
-    this.props.dispatch(editCourse(values));
-  };
+  // onEditSubmit = values => {
+  //   // values.dates = values.dates.split(",");
+  //   this.props.dispatch(editCourse(values));
+  // };
+
+  componentDidMount() {
+    const courseId = this.props.match.params.id;
+    this.props.dispatch(fetchSingleCourse(courseId));
+    
+  }
 
   // getCourse = () => {
   //   this.props.dispatch(fetchSingleCourse(this.props.match.params.id));
   // };
-  //test
 
   selectCourse() {
     let courseOptions = ["Intro to JS", "Intro to HTML"];
@@ -32,6 +38,8 @@ export class CourseEdit extends React.Component {
   }
 
   render() {
+    console.log(this.props.singleCourse);
+    console.log(this.props.singleCourse.instructor);
     return (
       <div>
         <Nav />
@@ -149,4 +157,11 @@ const courseEdit = reduxForm({
   form: "courseEdit"
 })(CourseEdit);
 
-export default courseEdit;
+const mapStateToProps = (state, props) => {
+  // console.log(state);
+  return {
+    singleCourse: state.scheduledCourses.selectedCourse
+  };
+};
+
+export default connect(mapStateToProps)(courseEdit);
