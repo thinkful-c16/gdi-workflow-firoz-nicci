@@ -2,16 +2,13 @@ import React from "react";
 import "./course-detail.css";
 import Nav from "./nav";
 import { connect } from "react-redux";
-<<<<<<< HEAD
 import {
   fetchScheduledCourses,
   selectCourse,
   fetchSingleCourse,
   editCourse
 } from "../actions";
-=======
 import { fetchScheduledCourses, selectCourse, fetchSingleCourse, meetupApiProxy } from "../actions";
->>>>>>> 0b07c36395eb1a994f913bf36b6b10cc160a6a21
 //import Form from './form';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import scheduledCourses from "../reducers";
@@ -24,11 +21,9 @@ export class CourseDetail extends React.Component {
     this.props.dispatch(fetchSingleCourse(courseId));
   }
 
-<<<<<<< HEAD
   clickEdit(course) {
     this.props.dispatch(editCourse(course));
   }
-=======
   writeDesc() {
     let text = `<p>This ${this.props.course.course.days}-day ${this.props.course.course.name} course will meet on ${this.props.course.dates[0]} from 9am-4pm. The $${this.props.course.course.price} payment covers the 6 hour class.</p>`
 
@@ -87,7 +82,6 @@ export class CourseDetail extends React.Component {
     //console.log(this.props.course)
     
     if(this.props.course._id) {
->>>>>>> 0b07c36395eb1a994f913bf36b6b10cc160a6a21
 
   render() {
     if (this.props.course._id) {
