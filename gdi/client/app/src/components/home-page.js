@@ -22,7 +22,7 @@ export default class HomePage extends React.Component {
           <Route exact path="/" component={People} />
           <Route exact path="/" component={Venues} />
           <Route exact path="/courseDetail/:id" component={CourseDetail} />
-          <Route exact path="/courseEdit" component={CourseEdit} />
+          <Route exact path="/courseEdit/:id" component={CourseEdit} />
           <Route exact path="/courseAdd" component={CourseAdd} />
         </div>
       </Router>
