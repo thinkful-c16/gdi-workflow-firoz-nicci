@@ -12,10 +12,10 @@ import {
 } from "../actions";
 
 export class CourseEdit extends React.Component {
-  // onEditSubmit = values => {
-  //   // values.dates = values.dates.split(",");
-  //   this.props.dispatch(editCourse(values));
-  // };
+  onEditSubmit = values => {
+    // values.dates = values.dates.split(",");
+    this.props.dispatch(editCourse(values));
+  };
 
   componentDidMount() {
     const courseId = this.props.match.params.id;
@@ -28,11 +28,8 @@ export class CourseEdit extends React.Component {
   }
 
   render() {
-    console.log(this.props.singleCourse);
-    //if (this.props.singleCourse.tas.length > 0) { 
-      // console.log(this.props.singleCourse.tas[0].firstName);
-//    }
-
+    //console.log(this.props.singleCourse);
+    
     //dynamic course coordinator option
     const courseCoordinator = this.props.people
       .filter(person => person.role.indexOf("Course Coordinator") > -1)
@@ -133,9 +130,10 @@ export class CourseEdit extends React.Component {
               </label>
               <Field component="select" type="text" name="tas" id="tas-name">
                 {/* <option>Select One...</option> */}
-                
+
                 <option>
-                  {this.props.singleCourse.tas[0].firstName}                 {this.props.singleCourse.tas[0].lastName}
+                  {this.props.singleCourse.tas[0].firstName}{" "}
+                  {this.props.singleCourse.tas[0].lastName}
                 </option>
                 {courseTA}
               </Field>
@@ -191,7 +189,12 @@ CourseEdit.defaultProps = {
       lastName: ""
     },
     venue: { company: "" },
-    tas: [],
+    tas: [
+      {
+        firstName: "",
+        lastName: ""
+      }
+    ],
     dates: []
   }
 };
