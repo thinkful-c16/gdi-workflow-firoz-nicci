@@ -6,6 +6,7 @@ import { fetchScheduledCourses, selectCourse, fetchSingleCourse, meetupApiProxy 
 //import Form from './form';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import scheduledCourses from "../reducers";
+import { moment } from 'moment';
 
 export class CourseDetail extends React.Component {
   componentDidMount() {
@@ -80,11 +81,12 @@ export class CourseDetail extends React.Component {
           <div className="course-detail">
     
               <h2>{console.log(this.props.course)} {this.props.course.course.name}</h2>
+             
               <h3>{this.props.course.dates[0]}</h3>
 
               <div>
                 <Link to={`/courseEdit/${this.props.course._id}`}>
-                  Edit
+                  Edit This Course
                 </Link>
               </div>
 
