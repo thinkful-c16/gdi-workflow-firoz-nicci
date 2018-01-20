@@ -1,6 +1,5 @@
 import scheduledCourses from "./components/scheduled-courses";
-
-//const API_BASE_URL = "http://localhost:8080/api";
+import { API_BASE_URL } from "./config";
 
 // =====  SCHEDULED COURSES ====
 
@@ -61,7 +60,7 @@ export const fetchPeopleSuccess = people => {
 // ===== ASYNC FETCH =====
 export const fetchScheduledCourses = () => dispatch => {
   dispatch(fetchScheduledCoursesRequest());
-  fetch("http://localhost:8080/api/scheduledCourses")
+  fetch(`${API_BASE_URL}/scheduledCourses`)
     .then(res => {
       if (!res.ok) {
         return console.error(`There was a problem!`);
@@ -69,7 +68,7 @@ export const fetchScheduledCourses = () => dispatch => {
       return res.json();
     })
     .then(courses => {
-      console.log(courses);
+      //console.log(courses);
       dispatch(fetchScheduledCoursesSuccess(courses));
     })
     .catch(error => {
@@ -80,13 +79,13 @@ export const fetchScheduledCourses = () => dispatch => {
 };
 
 export const addNewCourse = values => dispatch => {
-  console.log(values);
+  //console.log(values);
   //dispatch(addNewCourseRequest());
   const myHeaders = new Headers({
     "Content-Type": "application/json"
   });
 
-  fetch("http://localhost:8080/api/scheduledCourses", {
+  fetch(`${API_BASE_URL}/scheduledCourses`, {
     method: "post",
     body: JSON.stringify(values),
     headers: myHeaders
@@ -113,7 +112,7 @@ export const editCourse = values => dispatch => {
     "Content-Type": "application/json"
   });
 
-  fetch("http://localhost:8080/api/scheduledCourses/:id", {
+  fetch(`${API_BASE_URL}/scheduledCourses/:id`, {
     method: "put",
     body: JSON.stringify(values),
     headers: myHeaders
@@ -134,7 +133,7 @@ export const editCourse = values => dispatch => {
 
 export const fetchSingleCourse = id => dispatch => {
   //dispatch(fetchSingleCourseRequest());
-  fetch(`http://localhost:8080/api/scheduledCourses/${id}`)
+  fetch(`${API_BASE_URL}/scheduledCourses/${id}`)
     .then(res => {
       if (!res.ok) {
         return console.error(`There was a problem!`);
@@ -154,7 +153,7 @@ export const fetchSingleCourse = id => dispatch => {
 };
 
 export const fetchPeople = () => dispatch => {
-  fetch(`http://localhost:8080/api/people/`)
+  fetch(`${API_BASE_URL}/people/`)
     .then(res => {
       if (!res.ok) {
         return console.error(`There was a problem!`);
@@ -176,14 +175,14 @@ export const meetupApiProxy = text => dispatch => {
     "Content-Type": "application/json"
   });
 
-  fetch("http://localhost:8080/api/meetup", {
+  fetch(`${API_BASE_URL}/meetup`, {
     method: "post",
     body: JSON.stringify(text),
     headers: myHeaders
   })
     .then(res => {
       if (!res.ok) {
-        return console.error(`These was an issue with the API call.`);
+        return console.error("These was an issue with the API call.");
       }
       return;
     })

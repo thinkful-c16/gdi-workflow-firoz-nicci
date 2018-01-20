@@ -61,7 +61,7 @@ export class CourseDetail extends React.Component {
   
   sendProxy(){
     const finalDesc = this.writeMeetupDesc();
-    console.log(finalDesc);
+    //console.log(finalDesc);
     const hours = 4;
     const milli = (hours * 3600000);
     this.props.dispatch(meetupApiProxy(
@@ -82,7 +82,7 @@ export class CourseDetail extends React.Component {
           <div className="wrapper">
             <div className="course-detail">
               <h2>
-                {console.log(this.props.course.dates)} {this.props.course.course.name}
+                 {this.props.course.course.name}
               </h2>
               <h4>{moment(this.props.course.dates[0]).format('dddd, MMMM Do YYYY')}</h4>
 
